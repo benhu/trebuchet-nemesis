@@ -14,7 +14,7 @@ Trebuchet
     - La masse du projectile en kg
     - L'angle de la force de traction en °
 - Variables
-    - La gravité en m.s^-2
+    - La gravité en m.s^-2^
 # Structure de données
 Gènes : double[]
 Découpage de 1 à 6
