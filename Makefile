@@ -14,7 +14,7 @@ all:$(EXEC)
 	#$? L’ensemble des fichiers de d ́ependance
 
 Main:$(OBJ)
-	$(CXX) -std=c++0x -o bomberman $^ $(LDFLAGS)
+	$(CXX) -std=c++0x -o trebuchet $^ $(LDFLAGS)
 
 %.o: %.cpp
 	@$(CXX) -std=c++0x -o $@ -c $< $(CFLAGS)
