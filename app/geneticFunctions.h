@@ -4,7 +4,12 @@
 class geneticFunctions {
     
     public:
-    
+        geneticFunctions(){};
+        
+        void evaluateIndividual();
+        void selectIndividual();
+        void crossIndividual();
+
 
     private:
 
