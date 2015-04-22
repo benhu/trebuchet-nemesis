@@ -12,7 +12,7 @@ public:
     double calculateVelocite(double acceleration, double longueurBras);
     double calculatePortee(double velocite, double gravite, double alpha);
     double calculateEnergieImpact(double masseProjectile, double velocite);
-    bool calculateViabilite(double alpha, double longueurBras, double longueurBase, double masseProjectile, double masseContrePoids);
+    bool calculateViabilite(double alpha, double gravite, double longueurBras, double longueurBase, double masseProjectile, double masseContrePoids);
 private:
     double deg2rad(double deg);
 };
