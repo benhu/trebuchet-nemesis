@@ -2,7 +2,6 @@
 
 CXX=g++
 CFLAGS=-Wall -Wextra -pedantic -Wno-long-long
-LDFLAGS=-lncurses -lpthread
 EXEC=Main
 SRC=$(wildcard app/*.cpp)
 OBJ=$(SRC:.cpp=.o)
@@ -14,7 +13,7 @@ all:$(EXEC)
 	#$? L’ensemble des fichiers de d ́ependance
 
 Main:$(OBJ)
-	$(CXX) -std=c++0x -o trebuchet $^ $(LDFLAGS)
+	$(CXX) -std=c++0x -o trebuchet $^
 
 %.o: %.cpp
 	@$(CXX) -std=c++0x -o $@ -c $< $(CFLAGS)
@@ -25,4 +24,4 @@ clean:
 	rm -rf $(OBJ)
 
 mrproper: clean
-	@rm -rf $(EXEC
+	@rm -rf $(EXEC)
