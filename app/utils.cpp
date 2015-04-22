@@ -34,10 +34,10 @@ double Utils::calculateEnergieImpact(double masseProjectile, double velocite) {
     return 1 / 2 * masseProjectile * pow(velocite, 2);
 }
 
-bool Utils::calculateViabilite(double alpha, double longueurBras, double longueurBase, double masseProjectile, double masseContrePoids) {
+bool Utils::calculateViabilite(double alpha, double gravite, double longueurBras, double longueurBase, double masseProjectile, double masseContrePoids) {
     double calc111 = pow(sin(alpha) * longueurBras, 2);
     double calc112 = pow(cos(alpha) * longueurBras - longueurBase, 2);
-    double calc110 = calc101 + calc102;
+    double calc110 = calc111 + calc112;
     double calc120 = sin(alpha) * (masseProjectile * gravite);
     double calc100 = calc110 * calc120;
     double calc200 = longueurBase * (masseContrePoids * gravite);
