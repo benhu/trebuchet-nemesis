@@ -19,8 +19,6 @@ int main() {
     //int nbGeneration = 100;
     //int sizePopulation = 100;
 
-
-
     //Creation population
 
     //Evaluation
@@ -30,8 +28,6 @@ int main() {
     //Croisement/Mutation
 
     //Either(Termine, Evaluationdepop)
-
-
 
     return 0;
 }
