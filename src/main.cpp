@@ -9,7 +9,14 @@
 */
 using namespace std;
 
+double targetDist = 100.0;
+
+double** generatePopulation(int* size);
+double getRandValue(double min, double max);
+
 int main() {
+    // Initialisation de random
+    srand(time(NULL));
 
     Utils* utils = new Utils();
 
@@ -17,7 +24,9 @@ int main() {
 
     //Variable variable
     //int nbGeneration = 100;
-    //int sizePopulation = 100;
+    int sizePopulation = 100;
+
+    generatePopulation(&sizePopulation);
 
     //Creation population
 
@@ -30,4 +39,14 @@ int main() {
     //Either(Termine, Evaluationdepop)
 
     return 0;
+}
+
+double** generatePopulation(int* size) {
+    double** test = new double*[*size];
+    test[1] = new double[7];
+    return test;
+}
+
+double getRandValue(double min, double max) {
+    return (rand()/(double)RAND_MAX)*(max-min)+min;
 }
