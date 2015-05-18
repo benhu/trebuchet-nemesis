@@ -10,9 +10,10 @@ using namespace std;
   * @param
   * @return
   **/
- void geneticFunctions::evaluateIndividual(){
+void geneticFunctions::evaluateIndividual(){
 
- } 
+
+} 
 
  /*
   * Fonction de selection
@@ -23,9 +24,9 @@ using namespace std;
   * @return
   *
   */
-  void geneticFunctions::selectIndividual(){
+void geneticFunctions::selectIndividual(){
 
-  }
+}
 
   /*
   * Fonction de croisement
@@ -36,6 +37,6 @@ using namespace std;
   * @return
   *
   */
-  void geneticFunctions::crossIndividual(){
+void geneticFunctions::crossIndividual(){
 
-  }
+}

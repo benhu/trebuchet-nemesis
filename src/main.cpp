@@ -16,8 +16,8 @@ int main() {
     std::cout << utils->calculateForceTraction(5.2,3.0,2.0,14.0,6.0) << endl;
 
     //Variable variable
-    int nbGeneration = 100;
-    int sizePopulation = 100;
+    //int nbGeneration = 100;
+    //int sizePopulation = 100;
 
 
 
