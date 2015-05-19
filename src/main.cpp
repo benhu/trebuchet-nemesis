@@ -27,7 +27,9 @@ int main() {
     //int nbGeneration = 100;
     int sizePopulation = 100;
 
-    generatePopulation(sizePopulation);
+    double** pop = generatePopulation(sizePopulation);
+
+    cout << "100 : " << pop[99][0] << endl;
 
     //Creation population
 
