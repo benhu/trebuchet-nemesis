@@ -6,9 +6,9 @@
 class Utils {
     
 public:
-	bool   calcViability();
-	double calcPortee();
-	double calcEnergy();
+	bool   calcViability(double* genes);
+	double calcPortee(double* genes);
+	double calcEnergy(double* genes);
 	double calcVelocity(double* genes);
     
 private:

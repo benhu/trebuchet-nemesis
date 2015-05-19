@@ -2,19 +2,47 @@
 
 using namespace std;
 
+/**
+ * Fonction qui retourne si un individu est viable
+ * @param genes les genes de l'individu
+ * @return bool si l'element est viable
+ */
+bool   Utils::calcViability(double* genes){
 
-bool   Utils::calcViability(){
-    return 0;
+    return calculateViabilite(genes[0], gravity, genes[1], genes[3], genes[5], genes[4]);
 }
 
-double Utils::calcPortee(){
-    return 0;
+
+/**
+ * Fonction qui retourne la portee du lancement
+ * @param genes les genes de l'individu
+ * @return double la portee en m
+ */
+double Utils::calcPortee(double* genes){
+
+    double velocity = calcVelocity(genes);
+
+    return calculatePortee(velocity, gravity, genes[0]);
 }
 
-double Utils::calcEnergy(){
-    return 0;
+
+/**
+ * Fonction qui retourne l'energie du lancement
+ * @param genes les genes de l'individu
+ * @return double l'energie en J
+ */
+double Utils::calcEnergy(double* genes){ 
+
+    double velocity = calcVelocity(genes);
+    return calculateEnergieImpact(genes[5], velocity);
 }
 
+
+/**
+ * Fonction qui retourne la vitesse du projectile
+ * @param genes les genes de l'individu
+ * @return double la vitesse en m.s-1
+ */
 double Utils::calcVelocity(double* genes){
 
     /*
