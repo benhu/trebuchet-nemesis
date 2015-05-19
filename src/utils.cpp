@@ -68,38 +68,62 @@ double Utils::calcVelocity(double* genes){
     return calculateVelocite(acc, genes[1]);
 }
 
+/*
+ * La force de traction
+ */
 double Utils::calculateForceTraction(double masseContrePoids, double gravite, double beta, double masseProjectile, double alpha) {
     return (masseContrePoids * gravite) * sin(deg2rad(beta)) - (masseProjectile * gravite) * cos(deg2rad(alpha));
 }
 
+/**
+ * Le moment du bras
+ */
 double Utils::calculateMomentBras(double forceTraction, double longueurBras) {
     return forceTraction * longueurBras;
 }
 
+/**
+ * L'inertie du bras
+ */
 double Utils::calculateInertieBras(double masseBras, double longueurBras) {
     double numerateur = masseBras * pow(longueurBras, 2);
 
     return numerateur / 3;
 }
 
+/**
+ * L'acceleration du projectile
+ */
 double Utils::calculateAcceleration(double momentBras, double momentInertie) {
     return momentBras / momentInertie;
 }
 
+/**
+ * La velocite du projectile
+ */
 double Utils::calculateVelocite(double acceleration, double longueurBras) {
     return acceleration * longueurBras;
 }
 
+/*
+ * Calcul de portee.
+ */
 double Utils::calculatePortee(double velocite, double gravite, double alpha) {
     double div = pow(velocite, 2) / gravite;
 
     return div * sin(2 * (90 - alpha));
 }
 
+/**
+ * Calcul de l'energie d'impact
+ */
 double Utils::calculateEnergieImpact(double masseProjectile, double velocite) {
     return 1 / 2 * masseProjectile * pow(velocite, 2);
 }
 
+/*
+ * Calcul de viabilite
+ */
 bool Utils::calculateViabilite(double alpha, double gravite, double longueurBras, double longueurBase, double masseProjectile, double masseContrePoids) {
     double calc111 = pow(sin(alpha) * longueurBras, 2);
     double calc112 = pow(cos(alpha) * longueurBras - longueurBase, 2);
@@ -111,6 +135,9 @@ bool Utils::calculateViabilite(double alpha, double gravite, double longueurBras
     return calc100 <= calc200;
 }
 
+/*
+* Retourne degre en radian
+*/
 double Utils::deg2rad(double deg) {
     return deg*(180/M_PI);
 }
