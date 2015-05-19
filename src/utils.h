@@ -4,7 +4,18 @@
 #include <math.h>
 
 class Utils {
+    
 public:
+	bool   calcViability();
+	double calcPortee();
+	double calcEnergy();
+	double calcVelocity(double* genes);
+    
+private:
+    double const gravity = 9.81;
+
+    double deg2rad(double deg);
+
     double calculateForceTraction(double masseContrePoids, double gravite, double beta, double masseProjectile, double alpha);
     double calculateMomentBras(double forceTraction, double longueurBras);
     double calculateInertieBras(double masseBras, double longueurBras);
@@ -12,8 +23,7 @@ public:
     double calculateVelocite(double acceleration, double longueurBras);
     double calculatePortee(double velocite, double gravite, double alpha);
     double calculateEnergieImpact(double masseProjectile, double velocite);
-    bool calculateViabilite(double alpha, double gravite, double longueurBras, double longueurBase, double masseProjectile, double masseContrePoids);
-private:
-    double deg2rad(double deg);
+    bool   calculateViabilite(double alpha, double gravite, double longueurBras, double longueurBase, double masseProjectile, double masseContrePoids);
+
 };
 #endif // UTILS

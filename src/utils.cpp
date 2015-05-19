@@ -2,6 +2,41 @@
 
 using namespace std;
 
+
+bool   Utils::calcViability(){
+    return 0;
+}
+
+double Utils::calcPortee(){
+    return 0;
+}
+
+double Utils::calcEnergy(){
+    return 0;
+}
+
+double Utils::calcVelocity(double* genes){
+
+    /*
+    0 La hauteur du la butée en ° , alpha
+    1 La longueur du bras en m Lb
+    2 La masse du bras en kg mb
+    3 Longueur de la base en m Lr
+    4 La masse du contre poids en kg mc
+    5 La masse du projectile en kg mp
+    6 L'angle de la force de traction en ° beta
+    */    
+    
+    double momentInertie = calculateInertieBras(genes[2], genes[1]);
+
+    double forceTraction = calculateForceTraction(genes[4], gravity, genes[6], genes[5], genes[0]);
+    double momentBras = calculateMomentBras(forceTraction, genes[1]);
+    
+    double acc = calculateAcceleration(momentBras, momentInertie);
+    
+    return calculateVelocite(acc, genes[1]);
+}
+
 double Utils::calculateForceTraction(double masseContrePoids, double gravite, double beta, double masseProjectile, double alpha) {
     return (masseContrePoids * gravite) * sin(deg2rad(beta)) - (masseProjectile * gravite) * cos(deg2rad(alpha));
 }

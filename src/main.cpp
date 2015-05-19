@@ -11,16 +11,17 @@ using namespace std;
 
 double targetDist = 100.0;
 
-double** generatePopulation(int* size);
+double** generatePopulation(int size);
 double getRandValue(double min, double max);
 
 int main() {
     // Initialisation de random
     srand(time(NULL));
 
-    Utils* utils = new Utils();
+   // Utils* utils = new Utils();
 
-    std::cout << utils->calculateForceTraction(5.2,3.0,2.0,14.0,6.0) << endl;
+    //cout<< utils
+    //std::cout << utils->calculateForceTraction(5.2,3.0,2.0,14.0,6.0) << endl;
 
     //Variable variable
     //int nbGeneration = 100;
@@ -41,6 +42,18 @@ int main() {
     return 0;
 }
 
+/**
+ * Generate population with specific genes
+ *    
+ *   0 La hauteur du la butée en ° , alpha
+ *   1 La longueur du bras en m Lb
+ *   2 La masse du bras en kg mb
+ *   3 Longueur de la base en m Lr
+ *   4 La masse du contre poids en kg mc
+ *   5 La masse du projectile en kg mp
+ *   6 L'angle de la force de traction en ° beta
+ *
+ */
 double** generatePopulation(int size) {
     double** test = new double*[size];
     test[1] = new double[7];

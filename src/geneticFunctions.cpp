@@ -3,6 +3,7 @@
 using namespace std;
 
 
+
 /*
   * Fonction d'evaluation
   * Pour chaque individu donne une valaure
@@ -10,9 +11,17 @@ using namespace std;
   * @param
   * @return
   **/
-void geneticFunctions::evaluateIndividual(){
+void geneticFunctions::evaluatePopulation(double* pop){
+    delete(pop);
+    //Calcule de la variance si on ne varie plus on arrete ou si nbGeneration atteint
 
+    //Pour chaque individu on evalue
 
+        //On calcule la velocite
+
+        //On evalue la viabilite si non viable on met 1
+        //Sinon on evalue distance par rapport a objectif
+            //Puis on evalue selon la puissance sur l'objectif (pas un caractere tres important sauf si objectif atteint)
 } 
 
  /*
@@ -24,7 +33,7 @@ void geneticFunctions::evaluateIndividual(){
   * @return
   *
   */
-void geneticFunctions::selectIndividual(){
+void geneticFunctions::selectPopulation(){
 
 }
 
@@ -37,6 +46,19 @@ void geneticFunctions::selectIndividual(){
   * @return
   *
   */
-void geneticFunctions::crossIndividual(){
+void geneticFunctions::crossPopulation(){
+
+}
+
+  /*
+  * Fonction de croisement
+  * Croise des individus
+  *
+  * @param
+  * @param
+  * @return
+  *
+  */
+void geneticFunctions::crossCouple(){
 
 }
