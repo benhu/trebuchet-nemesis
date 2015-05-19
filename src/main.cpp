@@ -26,7 +26,7 @@ int main() {
     //int nbGeneration = 100;
     int sizePopulation = 100;
 
-    generatePopulation(&sizePopulation);
+    generatePopulation(sizePopulation);
 
     //Creation population
 
@@ -41,8 +41,8 @@ int main() {
     return 0;
 }
 
-double** generatePopulation(int* size) {
-    double** test = new double*[*size];
+double** generatePopulation(int size) {
+    double** test = new double*[size];
     test[1] = new double[7];
     return test;
 }
