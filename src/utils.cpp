@@ -2,6 +2,19 @@
 
 using namespace std;
 
+
+
+/*
+To keep it in mind
+    0 La hauteur du la butée en ° , alpha
+    1 La longueur du bras en m Lb
+    2 La masse du bras en kg mb
+    3 Longueur de la base en m Lr
+    4 La masse du contre poids en kg mc
+    5 La masse du projectile en kg mp
+    6 L'angle de la force de traction en ° beta
+*/    
+
 /**
  * Fonction qui retourne si un individu est viable
  * @param genes les genes de l'individu
@@ -21,7 +34,6 @@ bool   Utils::calcViability(double* genes){
 double Utils::calcPortee(double* genes){
 
     double velocity = calcVelocity(genes);
-
     return calculatePortee(velocity, gravity, genes[0]);
 }
 
@@ -45,15 +57,6 @@ double Utils::calcEnergy(double* genes){
  */
 double Utils::calcVelocity(double* genes){
 
-    /*
-    0 La hauteur du la butée en ° , alpha
-    1 La longueur du bras en m Lb
-    2 La masse du bras en kg mb
-    3 Longueur de la base en m Lr
-    4 La masse du contre poids en kg mc
-    5 La masse du projectile en kg mp
-    6 L'angle de la force de traction en ° beta
-    */    
     
     double momentInertie = calculateInertieBras(genes[2], genes[1]);
 
