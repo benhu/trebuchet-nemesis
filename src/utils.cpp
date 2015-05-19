@@ -3,21 +3,9 @@
 using namespace std;
 
 
-bool   Utils::calcViability(){
-    return 0;
-}
 
-double Utils::calcPortee(){
-    return 0;
-}
-
-double Utils::calcEnergy(){
-    return 0;
-}
-
-double Utils::calcVelocity(double* genes){
-
-    /*
+/*
+To keep it in mind
     0 La hauteur du la butée en ° , alpha
     1 La longueur du bras en m Lb
     2 La masse du bras en kg mb
@@ -25,7 +13,50 @@ double Utils::calcVelocity(double* genes){
     4 La masse du contre poids en kg mc
     5 La masse du projectile en kg mp
     6 L'angle de la force de traction en ° beta
-    */    
+*/    
+
+/**
+ * Fonction qui retourne si un individu est viable
+ * @param genes les genes de l'individu
+ * @return bool si l'element est viable
+ */
+bool   Utils::calcViability(double* genes){
+
+    return calculateViabilite(genes[0], gravity, genes[1], genes[3], genes[5], genes[4]);
+}
+
+
+/**
+ * Fonction qui retourne la portee du lancement
+ * @param genes les genes de l'individu
+ * @return double la portee en m
+ */
+double Utils::calcPortee(double* genes){
+
+    double velocity = calcVelocity(genes);
+    return calculatePortee(velocity, gravity, genes[0]);
+}
+
+
+/**
+ * Fonction qui retourne l'energie du lancement
+ * @param genes les genes de l'individu
+ * @return double l'energie en J
+ */
+double Utils::calcEnergy(double* genes){ 
+
+    double velocity = calcVelocity(genes);
+    return calculateEnergieImpact(genes[5], velocity);
+}
+
+
+/**
+ * Fonction qui retourne la vitesse du projectile
+ * @param genes les genes de l'individu
+ * @return double la vitesse en m.s-1
+ */
+double Utils::calcVelocity(double* genes){
+
     
     double momentInertie = calculateInertieBras(genes[2], genes[1]);
 
