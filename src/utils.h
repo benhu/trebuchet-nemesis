@@ -1,6 +1,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <iostream>
 #include <math.h>
 
 class Utils {
@@ -11,6 +12,7 @@ public:
     double evalPortee(double* genes);
 	double calcEnergy(double* genes);
 	double calcVelocity(double* genes);
+    static double getRandValue(double min, double max);
     
 private:
     double const gravity = 9.81;

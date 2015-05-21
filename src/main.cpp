@@ -63,24 +63,21 @@ double** generatePopulation(int size) {
         test[i] = new double[7];
         
         // hauteur butée
-        test[i][0] = getRandValue(0.0, 90.0);
+        test[i][0] = Utils::getRandValue(0.0, 90.0);
         // longueur du bras
-        test[i][1] = getRandValue(1.0, 100.0);
+        test[i][1] = Utils::getRandValue(1.0, 100.0);
         // masse du bras
-        test[i][2] = getRandValue(1.0, 100.0);
+        test[i][2] = Utils::getRandValue(1.0, 100.0);
         // longueur de la base
-        test[i][3] = getRandValue(1.0, 100.0);
+        test[i][3] = Utils::getRandValue(1.0, 100.0);
         // masse du contrepoids
-        test[i][4] = getRandValue(1.0, 100.0);
+        test[i][4] = Utils::getRandValue(1.0, 100.0);
         // masse du projectile
-        test[i][5] = getRandValue(1.0, 100.0);
+        test[i][5] = Utils::getRandValue(1.0, 100.0);
         // angle de la force
-        test[i][6] = getRandValue(1.0, 90.0);
+        test[i][6] = Utils::getRandValue(1.0, 90.0);
     }
 
     return test;
 }
 
-double getRandValue(double min, double max) {
-    return (rand()/(double)RAND_MAX)*(max-min)+min;
-}

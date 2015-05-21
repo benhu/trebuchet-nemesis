@@ -8,12 +8,12 @@ class geneticFunctions {
     public:
         geneticFunctions(){Utils utils();};
         
-        void evaluatePopulation(double* pop);
-        void selectPopulation();
-        void crossPopulation();
+        void    evaluatePopulation(double* pop);
+        double* selectPopulation(double** pop, int len);
+        void    crossPopulation();
 
 
     private:
-        void crossCouple();
+        void    crossCouple();
 };
 #endif // GENETICFUNCTIONS
