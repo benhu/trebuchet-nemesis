@@ -3,7 +3,7 @@ Trebuchet
 
 ![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minions.jpg?token=AGIcXMh7GY1PXtyYJcB7W9YVIOyKCRC8ks5VZ4l3wA%3D%3D)
 
-#Introduction
+# I.    Introduction
 
 Le but de ce TP est d'appliquer les algorithmes de metaheuristique pour créer le meilleur trebuchet possible dans les limites du "réalisable".
 L'idée est de faire en sorte que le trebuchet puisse atteindre un objet à une certaine distance. Pour cela nous devons trouver les caractéristiques nécessaires à la réalisation de l'objectif.
@@ -28,7 +28,7 @@ La mutation s'effectue sur un gène définis aléatoirement et la probabilité d
 
 
 
-# Element de l'algorithme
+# II.   Element de l'algorithme
 - Population
     - Ens de trebuchet
 - Individu
@@ -46,11 +46,11 @@ La mutation s'effectue sur un gène définis aléatoirement et la probabilité d
     -Nb Population
     - La gravité en m.s^-2
 
-# Structure de données
+# III.  Structure de données
 Gènes : double[]
 Découpage de 1 à 6
 
-# Variations des gènes
+# IV.   Variations des gènes
 - Hauteur de la butée en °
     - de 30° à 90°
 - Longueur du bras
@@ -58,7 +58,7 @@ Découpage de 1 à 6
 - Masse du bras
     - de 0 à bcp
 
-# Evaluation
+# V.    Evaluation
 - De la portée
     - Fonction gaussienne
 - De l'énergie de l'impact
