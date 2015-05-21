@@ -1,12 +1,34 @@
 Trebuchet
 =
 
+![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minions.jpg?token=AGIcXMh7GY1PXtyYJcB7W9YVIOyKCRC8ks5VZ4l3wA%3D%3D)
+
 #Introduction
 
 Le but de ce TP est d'appliquer les algorithmes de metaheuristique pour créer le meilleur trebuchet possible dans les limites du "réalisable".
-L'idée est de faire en sorte que le trebuchet puisse atteindre un objet à une certaine distance.
+L'idée est de faire en sorte que le trebuchet puisse atteindre un objet à une certaine distance. Pour cela nous devons trouver les caractéristiques nécessaires à la réalisation de l'objectif.
 
-# Base
+Nous souhaitons optimiser plusieurs paramètres du trebuchet. Ce type d'optimisation ne peut pas être fait en temps linéaire du fait de sa complexité. Nous allons donc utitiliser les algorithmes génétiques pour nous permettre de converger plus rapidement vers un résultat.
+
+# L'algorithme
+
+![alt tag]( https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/schemaAlgo.png?token=AGIcXAn1Li3cgsbfuydXL6dznOVtZKUlks5VZ419wA%3D%3D )
+
+Selection
+---------
+La selection s'effectue de manière aléatoire et est pondérée avec la somme des scores des fonctions d'évaluations.
+
+Croisement
+----------
+Le croisement s'effectue sur un gène défini aleatoirement au début de génération, les deux gènes se croisent et forme deux nouveaux gènes, la proba que le gène change est de 50%. 
+
+Mutation
+--------
+La mutation s'effectue sur un gène définis aléatoirement et la probabilité de mutation est de 1%
+
+
+
+# Element de l'algorithme
 - Population
     - Ens de trebuchet
 - Individu
@@ -41,12 +63,3 @@ Découpage de 1 à 6
     - Fonction gaussienne
 - De l'énergie de l'impact
 - De la viabilité
-
-# Selection
-La selection s'effectue de manière aléatoire et est pondérée avec la somme des scores des fonctions d'évaluations.
-
-# Croisement
-Le croisement s'effectue sur un gène défini aleatoirement au début de génération, les deux gènes se croisent et forme deux nouveaux gènes, la proba que le gène change est de 50%. 
-
-# Mutation
-La mutation s'effectue sur un gène définis aléatoirement et la probabilité de mutation est de 1%
