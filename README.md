@@ -1,9 +1,7 @@
 Trebuchet
 =
 
-<p align="center">
-![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minions.jpg?token=AGIcXMh7GY1PXtyYJcB7W9YVIOyKCRC8ks5VZ4l3wA%3D%3D)  
-</p>
+![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minions.jpg?token=AGIcXMh7GY1PXtyYJcB7W9YVIOyKCRC8ks5VZ4l3wA%3D%3D)
 
 # I.    Introduction
 
@@ -14,14 +12,28 @@ Nous souhaitons optimiser plusieurs paramètres du trebuchet. Ce type d'optimisa
 
 # II.   L'algorithme
 
-<p align="center">
 ![alt tag]( https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/schemaAlgo.png?token=AGIcXAn1Li3cgsbfuydXL6dznOVtZKUlks5VZ419wA%3D%3D )
-</p>
 
+
+L'Evaluation
+-------------
+Pour évaluer l'impact de nos évolutions, il nous mesurer nos différentes générations. Cette mesure est faite avec une fonction d'évaluation qui se base sur trois élément:
+Le plus important, la viabilité qui va nous dire si oui ou non notre catapulte est réalisable.
+Nous avons donc décider d'attribuer un score de 0.001 à un élément non viable, pour ne pas l'exclure et 1 pour un élément viable.
+
+Le second indicateur, se base sur la portée, il est plus qu'important que les minions atteignent leur cible. Nous avons donc décider d'attribuer un score en fonction de la distance l'écartant de sa cible.
+Le score devra être plus important en étant dans la zone autour de la cible. Pour reproduire cela nous utilisons une fonction gaussienne hyperbolique. 
+
+![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/funcPortee.png?token=AGIcXOgJmfwAXsN5PQzfIARCEZN3E0PAks5VZ5YAwA%3D%3D )
+
+Pour finir si nous sommes suffisament proche, de l'objet nous considérons la force de l'impact. 
+
+![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/funcPower.png?token=AGIcXHHX6dhUa-KbgX4CXKrF30Je6A2Lks5VZ5YfwA%3D%3D) 
 
 Selection
 ---------
-La selection s'effectue de manière aléatoire et est pondérée avec la somme des scores des fonctions d'évaluations.
+La selection permet de 
+Elle s'effectue de manière aléatoire et est pondérée avec la somme des scores des fonctions d'évaluations.
 
 Croisement
 ----------
@@ -51,8 +63,8 @@ La mutation s'effectue sur un gène définis aléatoirement et la probabilité d
     -Nb Population
     - La gravité en m.s^-2
 
-# IV.  Structure de données
-
+Structure de données
+--------------------
 Gènes : double[]
 Découpage de 0 à 6
 
@@ -67,7 +79,8 @@ To keep it in mind
 
 Nous avons aussi le score en position 7.
 
-# V.   Variations des gènes
+Variations des gènes
+--------------------
 - Hauteur de la butée en °
     - de 30° à 90°
 - Longueur du bras
@@ -75,8 +88,3 @@ Nous avons aussi le score en position 7.
 - Masse du bras
     - de 0 à bcp
 
-# VI.    Evaluation
-- De la portée
-    - Fonction gaussienne
-- De l'énergie de l'impact
-- De la viabilité
