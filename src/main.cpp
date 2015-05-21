@@ -35,7 +35,17 @@ int main() {
     //Evaluation
 
     //Selection
+    for(int i = 0; i < sizePopulation; ++i)
+    {
+        pop[i][7] = Utils::getRandValue(0.01, 3);
+    }
     
+    geneticFunctions* test = new geneticFunctions();
+
+    double* indiv = test->selectPopulation(pop, sizePopulation);
+
+    cout << "Score : " << indiv[7] << endl;
+
     //Croisement/Mutation
 
     //Either(Termine, Evaluationdepop)
@@ -60,7 +70,7 @@ double** generatePopulation(int size) {
     
     for(int i = 0; i < size; ++i)
     {
-        test[i] = new double[7];
+        test[i] = new double[8];
         
         // hauteur butée
         test[i][0] = Utils::getRandValue(0.0, 90.0);
