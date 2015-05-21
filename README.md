@@ -1,7 +1,9 @@
 Trebuchet
 =
 
-![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minions.jpg?token=AGIcXMh7GY1PXtyYJcB7W9YVIOyKCRC8ks5VZ4l3wA%3D%3D)
+<p align="center">
+![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minions.jpg?token=AGIcXMh7GY1PXtyYJcB7W9YVIOyKCRC8ks5VZ4l3wA%3D%3D)  
+</p>
 
 # I.    Introduction
 
@@ -12,7 +14,10 @@ Nous souhaitons optimiser plusieurs paramètres du trebuchet. Ce type d'optimisa
 
 # II.   L'algorithme
 
+<p align="center">
 ![alt tag]( https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/schemaAlgo.png?token=AGIcXAn1Li3cgsbfuydXL6dznOVtZKUlks5VZ419wA%3D%3D )
+</p>
+
 
 Selection
 ---------
