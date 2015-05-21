@@ -1,12 +1,55 @@
 Trebuchet
 =
 
-#Introduction
+![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minions.jpg?token=AGIcXMh7GY1PXtyYJcB7W9YVIOyKCRC8ks5VZ4l3wA%3D%3D)
+
+# I.    Introduction
 
 Le but de ce TP est d'appliquer les algorithmes de metaheuristique pour créer le meilleur trebuchet possible dans les limites du "réalisable".
-L'idée est de faire en sorte que le trebuchet puisse atteindre un objet à une certaine distance.
+L'idée est de faire en sorte que le trebuchet puisse atteindre un objet à une certaine distance. Pour cela nous devons trouver les caractéristiques nécessaires à la réalisation de l'objectif.
 
-# Base
+Nous souhaitons optimiser plusieurs paramètres du trebuchet. Ce type d'optimisation ne peut pas être fait en temps linéaire du fait de sa complexité. Nous allons donc utitiliser les algorithmes génétiques pour nous permettre de converger plus rapidement vers un résultat.
+
+# II.   L'algorithme
+
+![alt tag]( https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/schemaAlgo.png?token=AGIcXAn1Li3cgsbfuydXL6dznOVtZKUlks5VZ419wA%3D%3D )
+
+
+L'Evaluation
+-------------
+Pour évaluer l'impact de nos évolutions, il nous mesurer nos différentes générations. Cette mesure est faite avec une fonction d'évaluation qui se base sur trois élément:
+Le plus important, la viabilité qui va nous dire si oui ou non notre catapulte est réalisable.
+Nous avons donc décider d'attribuer un score de 0.001 à un élément non viable, pour ne pas l'exclure et 1 pour un élément viable.
+
+Le second indicateur, se base sur la portée, il est plus qu'important que les minions atteignent leur cible. Nous avons donc décider d'attribuer un score en fonction de la distance l'écartant de sa cible.
+Le score devra être plus important en étant dans la zone autour de la cible. Pour reproduire cela nous utilisons une fonction gaussienne hyperbolique. Le but étant qu'il y ait une forte pente dés qu'on s'écarte trop de la cible.
+
+![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/funcPortee.png?token=AGIcXOgJmfwAXsN5PQzfIARCEZN3E0PAks5VZ5YAwA%3D%3D )
+
+Pour finir si nous sommes suffisament proche, de l'objet nous considérons la force de l'impact.  Plus la force de l'impact est grand plus on doit considérerla force. Cependant cette élément peut être un facteur à forte divergence, il ne faut donc pas le prendre en compte si l'on est pas proche de l'élément.
+
+![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/funcPower.png?token=AGIcXHHX6dhUa-KbgX4CXKrF30Je6A2Lks5VZ5YfwA%3D%3D) 
+
+Selection
+---------
+La selection permet de récupérer les individus ordonnés sur les scores.
+
+![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minionOrder.jpg?token=AGIcXGhMwJM-Ubd-Lgsnfu-ry1epJyeJks5VZ5mFwA%3D%3D)
+
+Les individus ainsi rangé ont plus ou moins de chance d'être selectionné.
+Elle s'effectue de manière aléatoire et est pondérée avec la somme des scores des fonctions d'évaluations.
+
+Croisement
+----------
+Le croisement s'effectue sur un gène défini aleatoirement au début de génération, les deux gènes se croisent et forme deux nouveaux gènes, la proba que le gène change est de 50%. 
+
+Mutation
+--------
+La mutation s'effectue sur un gène définis aléatoirement et la probabilité de mutation est de 1%
+
+
+
+# III.   Element de l'algorithme
 - Population
     - Ens de trebuchet
 - Individu
@@ -24,11 +67,24 @@ L'idée est de faire en sorte que le trebuchet puisse atteindre un objet à une 
     -Nb Population
     - La gravité en m.s^-2
 
-# Structure de données
+Structure de données
+--------------------
 Gènes : double[]
-Découpage de 1 à 6
+Découpage de 0 à 6
 
-# Variations des gènes
+To keep it in mind
+- 0 La hauteur du la butée en ° , alpha
+- 1 La longueur du bras en m Lb
+- 2 La masse du bras en kg mb
+- 3 Longueur de la base en m Lr
+- 4 La masse du contre poids en kg mc
+- 5 La masse du projectile en kg mp
+- 6 L'angle de la force de traction en ° beta
+
+Nous avons aussi le score en position 7.
+
+Variations des gènes
+--------------------
 - Hauteur de la butée en °
     - de 30° à 90°
 - Longueur du bras
@@ -36,17 +92,9 @@ Découpage de 1 à 6
 - Masse du bras
     - de 0 à bcp
 
-# Evaluation
-- De la portée
-    - Fonction gaussienne
-- De l'énergie de l'impact
-- De la viabilité
+#Test
 
-# Selection
-La selection s'effectue de manière aléatoire et est pondérée avec la somme des scores des fonctions d'évaluations.
 
-# Croisement
-Le croisement s'effectue sur un gène défini aleatoirement au début de génération, les deux gènes se croisent et forme deux nouveaux gènes, la proba que le gène change est de 50%. 
 
-# Mutation
-La mutation s'effectue sur un gène définis aléatoirement et la probabilité de mutation est de 1%
+# Conclusion
+
