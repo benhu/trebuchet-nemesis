@@ -47,8 +47,20 @@ La mutation s'effectue sur un gène définis aléatoirement et la probabilité d
     - La gravité en m.s^-2
 
 # IV.  Structure de données
+
 Gènes : double[]
-Découpage de 1 à 6
+Découpage de 0 à 7
+
+To keep it in mind
+    0 La hauteur du la butée en ° , alpha
+    1 La longueur du bras en m Lb
+    2 La masse du bras en kg mb
+    3 Longueur de la base en m Lr
+    4 La masse du contre poids en kg mc
+    5 La masse du projectile en kg mp
+    6 L'angle de la force de traction en ° beta
+  
+
 
 # V.   Variations des gènes
 - Hauteur de la butée en °
