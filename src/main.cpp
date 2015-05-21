@@ -1,5 +1,4 @@
-//It is our future main class
-
+//It is our future main clas
 #include <iostream>
 #include "utils.h"
 #include "geneticFunctions.h"
@@ -9,7 +8,7 @@
 */
 using namespace std;
 
-double targetDist = 100.0;
+double targetDist = 200.0;
 
 double** generatePopulation(int size);
 double getRandValue(double min, double max);
@@ -25,18 +24,18 @@ int main() {
 
     //Variable variable
     //int nbGeneration = 100;
+    
+    //Creation population
     int sizePopulation = 100;
 
     double** pop = generatePopulation(sizePopulation);
 
     cout << "100 : " << pop[99][0] << endl;
 
-    //Creation population
-
     //Evaluation
 
     //Selection
-
+    
     //Croisement/Mutation
 
     //Either(Termine, Evaluationdepop)

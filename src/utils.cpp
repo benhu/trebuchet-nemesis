@@ -37,6 +37,15 @@ double Utils::calcPortee(double* genes){
     return calculatePortee(velocity, gravity, genes[0]);
 }
 
+/**
+ * Fonction qui retourne le score pour la distance (Fct Gaussienne)
+ * @param genes Les genes de l'individu
+ * @return double Le score
+ */
+double Utils::evalPortee(double* genes){
+    double x = calcPortee(genes);
+    return exp(-pow((x-300),2)/10000);
+}
 
 /**
  * Fonction qui retourne l'energie du lancement
