@@ -11,7 +11,7 @@ using namespace std;
 double targetDist = 200.0;
 
 double** generatePopulation(int size);
-double getRandValue(double min, double max);
+void     showPopulation(double** pop, int size, int generation);   
 
 int main() {
     // Initialisation de random
@@ -19,8 +19,7 @@ int main() {
 
    // Utils* utils = new Utils();
 
-    //cout<< utils
-    //std::cout << utils->calculateForceTraction(5.2,3.0,2.0,14.0,6.0) << endl;
+    GeneticFunctions* genetic = new GeneticFunctions();
 
     //Variable variable
     //int nbGeneration = 100;
@@ -30,25 +29,25 @@ int main() {
 
     double** pop = generatePopulation(sizePopulation);
 
-    cout << "100 : " << pop[99][0] << endl;
+    genetic->evaluatePopulation(pop,sizePopulation);
 
-    //Evaluation
+    showPopulation(pop,sizePopulation,1);
 
     //Selection
-    for(int i = 0; i < sizePopulation; ++i)
+    /*for(int i = 0; i < sizePopulation; ++i)
     {
-        pop[i][7] = Utils::getRandValue(0.01, 3);
+        pop[i][7] = Utils::getRandValue(0.01, 3.0);
     }
     
-    geneticFunctions* test = new geneticFunctions();
-
-    double* indiv = test->selectPopulation(pop, sizePopulation);
+    double* indiv = genetic->selectPopulation(pop, sizePopulation);
 
     cout << "Score : " << indiv[7] << endl;
-
+    */
     //Croisement/Mutation
-
-    //Either(Termine, Evaluationdepop)
+    int indexMutation = Utils::getRandValue(0.0, 7.0);
+    genetic->crossPopulation(pop, sizePopulation, &indexMutation);
+    genetic->evaluatePopulation(pop,sizePopulation);
+    showPopulation(pop,sizePopulation,2);
 
     return 0;
 }
@@ -86,8 +85,34 @@ double** generatePopulation(int size) {
         test[i][5] = Utils::getRandValue(1.0, 100.0);
         // angle de la force
         test[i][6] = Utils::getRandValue(1.0, 90.0);
+        // Le score
+        test[i][7] = 0;
     }
 
     return test;
 }
 
+/**
+ * Pour faire un affichage de la population
+ *
+ */ 
+void showPopulation(double** pop, int size, int generation){
+
+    cout<< " Generation : " << generation <<endl;
+    cout<< " ================================== "<<endl;
+
+    for(int i = 0; i < size; i++)
+    {
+        
+        cout<< " Alpha : "<< pop[i][0] << "°" <<endl; 
+        cout<< " Lb : "   << pop[i][1] << " m"   <<endl; 
+        cout<< " Mb : "   << pop[i][2] << " kg"  <<endl; 
+        cout<< " Lr : "   << pop[i][3] << " m"   <<endl; 
+        cout<< " Mc : "   << pop[i][4] << " kg"  <<endl; 
+        cout<< " Mp : "   << pop[i][5] << " m" <<endl;
+        cout<< " Beta : " << pop[i][6] << "°" <<endl;
+        cout<< " Score : " << pop[i][7] <<endl;
+        cout<<endl;
+    }
+
+}

@@ -7,26 +7,32 @@
 class Utils {
     
 public:
-	bool   calcViability(double* genes);
-	double calcPortee(double* genes);
-    double evalPortee(double* genes);
-	double calcEnergy(double* genes);
-	double calcVelocity(double* genes);
+
+	static bool   calcViability(double* genes);
+	static double calcPortee(double* genes);
+    static double calcEnergy(double* genes);
+	static double calcVelocity(double* genes);
+    
     static double getRandValue(double min, double max);
     
+    static double evalPortee(double* genes);
+    static double evalViability(double* genes);
+    static double evalPower(double* genes);
+    
+
 private:
-    double const gravity = 9.81;
+    static double constexpr gravity = 9.81;
 
-    double deg2rad(double deg);
+    static double deg2rad(double deg);
 
-    double calculateForceTraction(double masseContrePoids, double gravite, double beta, double masseProjectile, double alpha);
-    double calculateMomentBras(double forceTraction, double longueurBras);
-    double calculateInertieBras(double masseBras, double longueurBras);
-    double calculateAcceleration(double momentBras, double momentInertie);
-    double calculateVelocite(double acceleration, double longueurBras);
-    double calculatePortee(double velocite, double gravite, double alpha);
-    double calculateEnergieImpact(double masseProjectile, double velocite);
-    bool   calculateViabilite(double alpha, double gravite, double longueurBras, double longueurBase, double masseProjectile, double masseContrePoids);
+    static double calculateForceTraction(double masseContrePoids, double gravite, double beta, double masseProjectile, double alpha);
+    static double calculateMomentBras(double forceTraction, double longueurBras);
+    static double calculateInertieBras(double masseBras, double longueurBras);
+    static double calculateAcceleration(double momentBras, double momentInertie);
+    static double calculateVelocite(double acceleration, double longueurBras);
+    static double calculatePortee(double velocite, double gravite, double alpha);
+    static double calculateEnergieImpact(double masseProjectile, double velocite);
+    static bool   calculateViabilite(double alpha, double gravite, double longueurBras, double longueurBase, double masseProjectile, double masseContrePoids);
 
 };
 #endif // UTILS

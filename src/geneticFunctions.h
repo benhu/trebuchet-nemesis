@@ -3,15 +3,14 @@
 
 #include "utils.h"
 
-class geneticFunctions {
+class GeneticFunctions {
     
     public:
-        geneticFunctions(){Utils utils();};
+        GeneticFunctions(){};
         
-        void    evaluatePopulation(double* pop);
+        void evaluatePopulation(double** pop, int size);
         double* selectPopulation(double** pop, int len);
-        void    crossPopulation();
-
+        void crossPopulation(double** pop, int len,  int* index);
 
     private:
         void    crossCouple();

@@ -37,15 +37,6 @@ double Utils::calcPortee(double* genes){
     return calculatePortee(velocity, gravity, genes[0]);
 }
 
-/**
- * Fonction qui retourne le score pour la distance (Fct Gaussienne)
- * @param genes Les genes de l'individu
- * @return double Le score
- */
-double Utils::evalPortee(double* genes){
-    double x = calcPortee(genes);
-    return exp(-pow((x-300),2)/10000);
-}
 
 /**
  * Fonction qui retourne l'energie du lancement
@@ -76,6 +67,53 @@ double Utils::calcVelocity(double* genes){
     
     return calculateVelocite(acc, genes[1]);
 }
+
+
+/** Fonction d'avaluation **/
+
+/**
+ * Fonction qui retourne le score pour la distance (Fct Gaussienne)
+ * @param genes Les genes de l'individu
+ * @return double Le score
+ */
+double Utils::evalPortee(double* genes){
+    double x = calcPortee(genes);
+    /*cout<< " Alpha : "<< genes[0] << "°" <<endl; 
+    cout<< " Lb : "   << genes[1] << " m"   <<endl; 
+    cout<< " Mb : "   << genes[2] << " kg"  <<endl; 
+    cout<< " Lr : "   << genes[3] << " m"   <<endl; 
+    cout<< " Mc : "   << genes[4] << " kg"  <<endl; 
+    cout<< " Mp : "   << genes[5] << " m" <<endl;
+    cout<< " Beta : " << genes[6] << "°" <<endl;
+    cout<< "Portée " << x << endl;
+    cout<<endl;*/
+    return exp(-pow((x-300),2)/10000);
+}
+
+
+/**
+ * Fonction qui retourne le score pour la puissance
+ * Fonction qui monte progressivement vers 1, plus puissance eleve plus on a de chance d'avoir 1
+ * @param genes Les genes de l'individu
+ * @return double Le score
+ */
+double Utils::evalPower(double* genes){
+    return atan(calcEnergy(genes))/(M_PI/2);
+}
+
+
+/**
+ * Fonction qui retourne le score pour la viabilite
+ * Retourne soit 0.001 (non viable) soit 1 (viable).
+ * @param genes Les genes de l'individu
+ * @return double Le score
+ */
+double Utils::evalViability(double* genes){
+    return ((calcViability(genes)) ? 0.001 : 1);
+}
+
+
+/** Fonction de calcul physique **/
 
 /*
  * Retourne une valeur aléatoire
@@ -143,10 +181,10 @@ double Utils::calculateEnergieImpact(double masseProjectile, double velocite) {
  * Calcul de viabilite
  */
 bool Utils::calculateViabilite(double alpha, double gravite, double longueurBras, double longueurBase, double masseProjectile, double masseContrePoids) {
-    double calc111 = pow(sin(alpha) * longueurBras, 2);
-    double calc112 = pow(cos(alpha) * longueurBras - longueurBase, 2);
+    double calc111 = pow(sin(deg2rad(alpha)) * longueurBras, 2);
+    double calc112 = pow(cos(deg2rad(alpha)) * longueurBras - longueurBase, 2);
     double calc110 = calc111 + calc112;
-    double calc120 = sin(alpha) * (masseProjectile * gravite);
+    double calc120 = sin(deg2rad(alpha)) * (masseProjectile * gravite);
     double calc100 = calc110 * calc120;
     double calc200 = longueurBase * (masseContrePoids * gravite);
 
