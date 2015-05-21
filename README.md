@@ -52,14 +52,14 @@ Gènes : double[]
 Découpage de 0 à 6
 
 To keep it in mind
-    - 0 La hauteur du la butée en ° , alpha
-    - 1 La longueur du bras en m Lb
-    - 2 La masse du bras en kg mb
-    - 3 Longueur de la base en m Lr
-    - 4 La masse du contre poids en kg mc
-    - 5 La masse du projectile en kg mp
-    - 6 L'angle de la force de traction en ° beta
-  
+- 0 La hauteur du la butée en ° , alpha
+- 1 La longueur du bras en m Lb
+- 2 La masse du bras en kg mb
+- 3 Longueur de la base en m Lr
+- 4 La masse du contre poids en kg mc
+- 5 La masse du projectile en kg mp
+- 6 L'angle de la force de traction en ° beta
+
 Nous avons aussi le score en position 7.
 
 # V.   Variations des gènes
