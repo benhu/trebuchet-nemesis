@@ -10,7 +10,7 @@ L'idée est de faire en sorte que le trebuchet puisse atteindre un objet à une 
 
 Nous souhaitons optimiser plusieurs paramètres du trebuchet. Ce type d'optimisation ne peut pas être fait en temps linéaire du fait de sa complexité. Nous allons donc utitiliser les algorithmes génétiques pour nous permettre de converger plus rapidement vers un résultat.
 
-# L'algorithme
+# II.   L'algorithme
 
 ![alt tag]( https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/schemaAlgo.png?token=AGIcXAn1Li3cgsbfuydXL6dznOVtZKUlks5VZ419wA%3D%3D )
 
@@ -28,7 +28,7 @@ La mutation s'effectue sur un gène définis aléatoirement et la probabilité d
 
 
 
-# II.   Element de l'algorithme
+# III.   Element de l'algorithme
 - Population
     - Ens de trebuchet
 - Individu
@@ -46,11 +46,11 @@ La mutation s'effectue sur un gène définis aléatoirement et la probabilité d
     -Nb Population
     - La gravité en m.s^-2
 
-# III.  Structure de données
+# IV.  Structure de données
 Gènes : double[]
 Découpage de 1 à 6
 
-# IV.   Variations des gènes
+# V.   Variations des gènes
 - Hauteur de la butée en °
     - de 30° à 90°
 - Longueur du bras
@@ -58,7 +58,7 @@ Découpage de 1 à 6
 - Masse du bras
     - de 0 à bcp
 
-# V.    Evaluation
+# VI.    Evaluation
 - De la portée
     - Fonction gaussienne
 - De l'énergie de l'impact
