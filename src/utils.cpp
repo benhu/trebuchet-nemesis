@@ -20,7 +20,7 @@ To keep it in mind
  * @param genes les genes de l'individu
  * @return bool si l'element est viable
  */
-bool   Utils::calcViability(double* genes){
+bool Utils::calcViability(double* genes){
 
     return calculateViabilite(genes[0], gravity, genes[1], genes[3], genes[5], genes[4]);
 }
@@ -107,6 +107,15 @@ double Utils::evalViability(double* genes){
 /** Fonction de calcul physique **/
 
 /*
+ * Retourne une valeur aléatoire
+ * @param min Valeur min
+ * @param max Valeur max
+ * @return double Valeur aléatoire
+ */
+double Utils::getRandValue(double min, double max) {
+    return (rand()/(double)RAND_MAX)*(max-min)+min;
+}
+/*
  * La force de traction
  */
 double Utils::calculateForceTraction(double masseContrePoids, double gravite, double beta, double masseProjectile, double alpha) {
@@ -177,5 +186,5 @@ bool Utils::calculateViabilite(double alpha, double gravite, double longueurBras
 * Retourne degre en radian
 */
 double Utils::deg2rad(double deg) {
-    return deg*(180/M_PI);
+    return deg*(M_PI/180);
 }

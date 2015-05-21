@@ -41,12 +41,29 @@ void GeneticFunctions::evaluatePopulation(double** pop, int size){
   * Selectionne les individus
   *
   * @param
-  * @param
   * @return
   *
   */
-void GeneticFunctions::selectPopulation(){
+double* GeneticFunctions::selectPopulation(double** pop, int len){
+    double sumScore = 0;
+    
+    for(int i=0; i < len; sumScore+=pop[i][7], ++i);
 
+    double randVal = Utils::getRandValue(0.0, sumScore);
+
+    double selectSumScore = 0;
+
+    for(int i=0; i < len; ++i)
+    {
+        selectSumScore += pop[i][7];
+        
+        if(selectSumScore >= randVal)
+        {
+            return pop[i];
+        }
+    }
+
+    return NULL;
 }
 
   /*
@@ -59,7 +76,6 @@ void GeneticFunctions::selectPopulation(){
   *
   */
 void GeneticFunctions::crossPopulation(){
-
 }
 
   /*

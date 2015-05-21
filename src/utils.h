@@ -1,15 +1,19 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <iostream>
 #include <math.h>
 
 class Utils {
     
 public:
+
 	static bool   calcViability(double* genes);
 	static double calcPortee(double* genes);
     static double calcEnergy(double* genes);
 	static double calcVelocity(double* genes);
+    static double getRandValue(double min, double max);
+
     
     static double evalPortee(double* genes);
     static double evalViability(double* genes);

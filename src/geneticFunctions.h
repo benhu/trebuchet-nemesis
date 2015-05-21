@@ -10,11 +10,10 @@ class GeneticFunctions {
         GeneticFunctions(){};
         
         void evaluatePopulation(double** pop, int size);
-        void selectPopulation();
-        void crossPopulation();
-
+        double* selectPopulation(double** pop, int len);
+        void    crossPopulation();
 
     private:
-        void crossCouple();
+        void    crossCouple();
 };
 #endif // GENETICFUNCTIONS
