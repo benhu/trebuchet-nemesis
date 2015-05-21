@@ -1,5 +1,5 @@
 CC=g++
-CC_FLAGS=-g -Wall -Werror -pedantic -W -std=c++11
+CC_FLAGS=-g -Wall -W -pedantic -W -std=c++11
 
 BIN_NAME=main
 BIN_DIR=./bin

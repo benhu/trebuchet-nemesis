@@ -11,13 +11,18 @@ using namespace std;
 double targetDist = 200.0;
 
 double** generatePopulation(int size);
-double getRandValue(double min, double max);
+double   getRandValue(double min, double max);
+void     showPopulation(double** pop, int size, int generation);   
 
 int main() {
     // Initialisation de random
     srand(time(NULL));
 
    // Utils* utils = new Utils();
+
+    GeneticFunctions* genetic = new GeneticFunctions();
+
+
 
     //Variable variable
     //int nbGeneration = 100;
@@ -27,15 +32,12 @@ int main() {
 
     double** pop = generatePopulation(sizePopulation);
 
-    cout << "100 : " << pop[99][0] << endl;
+    genetic->evaluatePopulation(pop,sizePopulation);
 
-    //Evaluation
+    showPopulation(pop,sizePopulation,1);
 
-    //Selection
-    
-    //Croisement/Mutation
 
-    //Either(Termine, Evaluationdepop)
+
 
     return 0;
 }
@@ -57,7 +59,7 @@ double** generatePopulation(int size) {
     
     for(int i = 0; i < size; ++i)
     {
-        test[i] = new double[7];
+        test[i] = new double[8];
         
         // hauteur butée
         test[i][0] = getRandValue(0.0, 90.0);
@@ -73,9 +75,35 @@ double** generatePopulation(int size) {
         test[i][5] = getRandValue(1.0, 100.0);
         // angle de la force
         test[i][6] = getRandValue(1.0, 90.0);
+        // Le score
+        test[i][7] = 0;
     }
 
     return test;
+}
+
+/**
+ * Pour faire un affichage de la population
+ *
+ */ 
+void showPopulation(double** pop, int size, int generation){
+
+    cout<< " Generation : " << generation <<endl;
+
+    for(int i = 0; i < size; i++)
+    {
+        
+        //cout<< " Alpha : "<< pop[i][0] << "°" <<endl; 
+        //cout<< " Lb : "   << pop[i][1] << " m"   <<endl; 
+        //cout<< " Mb : "   << pop[i][2] << " kg"  <<endl; 
+        //cout<< " Lr : "   << pop[i][3] << " m"   <<endl; 
+        //cout<< " Mc : "   << pop[i][4] << " kg"  <<endl; 
+        //cout<< " Mp : "   << pop[i][5] << " m" <<endl;
+        //cout<< " Beta : " << pop[i][6] << "°" <<endl;
+        cout<< " Score : " << pop[i][7] <<endl;
+        cout<<endl;
+    }
+
 }
 
 double getRandValue(double min, double max) {

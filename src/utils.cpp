@@ -100,7 +100,7 @@ double Utils::evalPower(double* genes){
  * @return double Le score
  */
 double Utils::evalViability(double* genes){
-    return calcViability(genes)? 0.001 : 1;
+    return ((calcViability(genes)) ? 0.001 : 1);
 }
 
 

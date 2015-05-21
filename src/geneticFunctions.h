@@ -2,13 +2,14 @@
 #define GENETICFUNCTIONS_H
 
 #include "utils.h"
+#include <iostream>
 
-class geneticFunctions {
+class GeneticFunctions {
     
     public:
-        geneticFunctions(){Utils utils();};
+        GeneticFunctions(){};
         
-        void evaluatePopulation(double* pop);
+        void evaluatePopulation(double** pop, int size);
         void selectPopulation();
         void crossPopulation();
 
