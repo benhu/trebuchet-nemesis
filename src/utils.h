@@ -8,10 +8,14 @@ class Utils {
 public:
 	bool   calcViability(double* genes);
 	double calcPortee(double* genes);
-    double evalPortee(double* genes);
-	double calcEnergy(double* genes);
+    double calcEnergy(double* genes);
 	double calcVelocity(double* genes);
     
+    double evalPortee(double* genes);
+    double evalViability(double* genes);
+    double evalPower(double* genes);
+    
+
 private:
     double const gravity = 9.81;
 

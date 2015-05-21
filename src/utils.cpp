@@ -37,15 +37,6 @@ double Utils::calcPortee(double* genes){
     return calculatePortee(velocity, gravity, genes[0]);
 }
 
-/**
- * Fonction qui retourne le score pour la distance (Fct Gaussienne)
- * @param genes Les genes de l'individu
- * @return double Le score
- */
-double Utils::evalPortee(double* genes){
-    double x = calcPortee(genes);
-    return exp(-pow((x-300),2)/10000);
-}
 
 /**
  * Fonction qui retourne l'energie du lancement
@@ -76,6 +67,44 @@ double Utils::calcVelocity(double* genes){
     
     return calculateVelocite(acc, genes[1]);
 }
+
+
+/** Fonction d'avaluation **/
+
+/**
+ * Fonction qui retourne le score pour la distance (Fct Gaussienne)
+ * @param genes Les genes de l'individu
+ * @return double Le score
+ */
+double Utils::evalPortee(double* genes){
+    double x = calcPortee(genes);
+    return exp(-pow((x-300),2)/10000);
+}
+
+
+/**
+ * Fonction qui retourne le score pour la puissance
+ * Fonction qui monte progressivement vers 1, plus puissance eleve plus on a de chance d'avoir 1
+ * @param genes Les genes de l'individu
+ * @return double Le score
+ */
+double Utils::evalPower(double* genes){
+    return atan(calcEnergy(genes))/(M_PI/2);
+}
+
+
+/**
+ * Fonction qui retourne le score pour la viabilite
+ * Retourne soit 0.001 (non viable) soit 1 (viable).
+ * @param genes Les genes de l'individu
+ * @return double Le score
+ */
+double Utils::evalViability(double* genes){
+    return calcViability(genes)? 0.001 : 1;
+}
+
+
+/** Fonction de calcul physique **/
 
 /*
  * La force de traction

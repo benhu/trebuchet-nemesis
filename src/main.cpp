@@ -19,9 +19,6 @@ int main() {
 
    // Utils* utils = new Utils();
 
-    //cout<< utils
-    //std::cout << utils->calculateForceTraction(5.2,3.0,2.0,14.0,6.0) << endl;
-
     //Variable variable
     //int nbGeneration = 100;
     
