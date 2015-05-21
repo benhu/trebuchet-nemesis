@@ -22,17 +22,21 @@ Le plus important, la viabilité qui va nous dire si oui ou non notre catapulte 
 Nous avons donc décider d'attribuer un score de 0.001 à un élément non viable, pour ne pas l'exclure et 1 pour un élément viable.
 
 Le second indicateur, se base sur la portée, il est plus qu'important que les minions atteignent leur cible. Nous avons donc décider d'attribuer un score en fonction de la distance l'écartant de sa cible.
-Le score devra être plus important en étant dans la zone autour de la cible. Pour reproduire cela nous utilisons une fonction gaussienne hyperbolique. 
+Le score devra être plus important en étant dans la zone autour de la cible. Pour reproduire cela nous utilisons une fonction gaussienne hyperbolique. Le but étant qu'il y ait une forte pente dés qu'on s'écarte trop de la cible.
 
 ![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/funcPortee.png?token=AGIcXOgJmfwAXsN5PQzfIARCEZN3E0PAks5VZ5YAwA%3D%3D )
 
-Pour finir si nous sommes suffisament proche, de l'objet nous considérons la force de l'impact. 
+Pour finir si nous sommes suffisament proche, de l'objet nous considérons la force de l'impact.  Plus la force de l'impact est grand plus on doit considérerla force. Cependant cette élément peut être un facteur à forte divergence, il ne faut donc pas le prendre en compte si l'on est pas proche de l'élément.
 
 ![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/funcPower.png?token=AGIcXHHX6dhUa-KbgX4CXKrF30Je6A2Lks5VZ5YfwA%3D%3D) 
 
 Selection
 ---------
-La selection permet de 
+La selection permet de récupérer les individus ordonnés sur les scores.
+
+![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minionOrder.jpg?token=AGIcXGhMwJM-Ubd-Lgsnfu-ry1epJyeJks5VZ5mFwA%3D%3D)
+
+Les individus ainsi rangé ont plus ou moins de chance d'être selectionné.
 Elle s'effectue de manière aléatoire et est pondérée avec la somme des scores des fonctions d'évaluations.
 
 Croisement
@@ -87,4 +91,10 @@ Variations des gènes
     - de 0 à bcp
 - Masse du bras
     - de 0 à bcp
+
+#Test
+
+
+
+# Conclusion
 
