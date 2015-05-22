@@ -17,11 +17,14 @@ int main() {
     // Initialisation de random
     srand(time(NULL));
 
-    GeneticFunctions* genetic = new GeneticFunctions();
 
     //Creation population
-    int sizePopulation = 500;
-    int generation = 10000;
+    int sizePopulation = 100;
+    int generation = 10;
+
+    //Intitialize Genetics
+
+    GeneticFunctions* genetic = new GeneticFunctions(sizePopulation,generation);
 
     double** pop = generatePopulation(sizePopulation);
 
@@ -93,7 +96,7 @@ double** generatePopulation(int size) {
 void showPopulation(double** pop, int size, int generation){
 
     cout<< " Generation : " << generation <<endl;
-    cout<< " ================================== "<<endl;
+    cout<< " ========================= "<<endl;
     
     int bestIndex = 0;
     double bestScore = 0.0;

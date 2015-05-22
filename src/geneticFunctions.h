@@ -7,11 +7,25 @@
 class GeneticFunctions {
     
     public:
-        GeneticFunctions(){};
+        GeneticFunctions(int size, int nbGen):sizePop(size), nbGeneration(nbGen), cptGeneration(0){
+        	variances = new double[nbGeneration]; 
+        	scoreTotale = new double[nbGeneration];
+        };
         
         double evaluatePopulation(double** pop, int size);
         double* selectPopulation(double** pop, int len);
         double** crossPopulation(double** pop, int len,  int* index);
         double** mutPopulation(double** pop, int len);
+
+        double* getVariances(){return variances;}
+
+    private:
+
+    	int sizePop;
+    	int nbGeneration;
+    	int cptGeneration;
+
+    	double* variances;
+    	double* scoreTotale;
 };
 #endif // GENETICFUNCTIONS

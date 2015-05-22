@@ -13,6 +13,7 @@ using namespace std;
   **/
 double GeneticFunctions::evaluatePopulation(double** pop, int size){
     
+    cptGeneration++;
     double totalScore = 0;
     double variance =0;
     double moyenne = 0;
@@ -30,7 +31,7 @@ double GeneticFunctions::evaluatePopulation(double** pop, int size){
             
             //Puis on evalue selon la puissance sur l'objectif (pas un caractere tres important sauf si objectif presque atteint attention divergence)
             //if(individual[7] > 1.3){
-                individual[7] += Utils::evalPower(individual);
+            individual[7] += Utils::evalPower(individual);
             //}
         }else{
             // Change le score
@@ -45,12 +46,8 @@ double GeneticFunctions::evaluatePopulation(double** pop, int size){
     
     variance = variance/size;
     variance -= moyenne*moyenne;
-    cout <<endl;
-    cout << "moyenns : " << moyenne <<endl;
-    cout << "Score : " << totalScore<<endl;
-    cout << "Variance : " << variance << endl;
-
-    return totalScore;
+    
+    return variance;
 } 
 
  /*
