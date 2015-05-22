@@ -31,7 +31,7 @@ int main() {
 
     while(cntGeneration < generation) {
 
-        genetic->evaluatePopulation(pop,sizePopulation);
+        genetic->evaluatePopulation(pop,sizePopulation, targetDist);
 
         if(cntGeneration == 1 || cntGeneration == generation - 1)
             showPopulation(pop,sizePopulation, cntGeneration);

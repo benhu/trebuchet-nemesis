@@ -15,7 +15,7 @@ public:
     
     static double getRandValue(double min, double max);
     
-    static double evalPortee(double* genes);
+    static double evalPortee(double* genes, double distance);
     static double evalViability(double* genes);
     static double evalPower(double* genes);
     

@@ -76,7 +76,7 @@ double Utils::calcVelocity(double* genes){
  * @param genes Les genes de l'individu
  * @return double Le score
  */
-double Utils::evalPortee(double* genes){
+double Utils::evalPortee(double* genes, double distance){
     double x = calcPortee(genes);
     /*cout<< " Alpha : "<< genes[0] << "°" <<endl; 
     cout<< " Lb : "   << genes[1] << " m"   <<endl; 
@@ -87,7 +87,7 @@ double Utils::evalPortee(double* genes){
     cout<< " Beta : " << genes[6] << "°" <<endl;
     cout<< "Portée " << x << endl;
     cout<<endl;*/
-    return exp(-pow((x-300),2)/10000);
+    return exp(-pow((x-distance),2)/10000);
 }
 
 
