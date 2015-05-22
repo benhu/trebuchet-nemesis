@@ -36,6 +36,8 @@ int main() {
         showPopulation(pop,sizePopulation, cntGeneration);
         
         pop = genetic->crossPopulation(pop, sizePopulation, &indexMutation);
+        
+        pop = genetic->mutPopulation(pop, sizePopulation);
 
         ++cntGeneration;
     }
@@ -63,7 +65,7 @@ double** generatePopulation(int size) {
         test[i] = new double[8];
         
         // hauteur butée
-        test[i][0] = Utils::getRandValue(30.0, 90.0);
+        test[i][0] = Utils::getRandValue(1.0, 100.0);
         // longueur du bras
         test[i][1] = Utils::getRandValue(1.0, 100.0);
         // masse du bras
@@ -75,7 +77,7 @@ double** generatePopulation(int size) {
         // masse du projectile
         test[i][5] = Utils::getRandValue(1.0, 100.0);
         // angle de la force
-        test[i][6] = Utils::getRandValue(1.0, 90.0);
+        test[i][6] = Utils::getRandValue(1.0, 100.0);
         // Le score
         test[i][7] = 0;
     }
@@ -102,8 +104,8 @@ void showPopulation(double** pop, int size, int generation){
         //cout<< " Mc : "   << pop[i][4] << " kg"  <<endl; 
         //cout<< " Mp : "   << pop[i][5] << " m" <<endl;
         //cout<< " Beta : " << pop[i][6] << "°" <<endl;
-        cout<< " Score : " << pop[i][7] <<endl;
-        cout<<endl;
+        //cout<< " Score : " << pop[i][7] <<endl;
+        //cout<<endl;
     }
 
 }
