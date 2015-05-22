@@ -1,9 +1,18 @@
 Trebuchet
 ========
 
+Table des matières
+-----------------
+
+[I. Introduction](# I. Introduction) 
+[lien afficher](#nomAncre) 
+[lien afficher](#nomAncre) 
+[lien afficher](#nomAncre) 
+[lien afficher](#nomAncre) 
+
 ![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minions.jpg?token=AGIcXMh7GY1PXtyYJcB7W9YVIOyKCRC8ks5VZ4l3wA%3D%3D)
 
-# I.    Introduction
+# I. Introduction
 
 Le but de ce TP est d'appliquer les algorithmes de metaheuristique pour créer le meilleur trebuchet possible dans les limites du "réalisable".
 L'idée est de faire en sorte que le trebuchet puisse atteindre un objet à une certaine distance. Pour cela nous devons trouver les caractéristiques nécessaires à la réalisation de l'objectif.
