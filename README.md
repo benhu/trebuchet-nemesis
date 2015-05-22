@@ -4,7 +4,7 @@ Trebuchet
 Table des matières
 -----------------
 
-[I. Introduction](#I. Introduction) 
+[I. Introduction](#i-introduction) 
 [lien afficher](#nomAncre) 
 [lien afficher](#nomAncre) 
 [lien afficher](#nomAncre) 
