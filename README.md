@@ -102,4 +102,4 @@ Variations des gènes
 
 # Conclusion
 
-Nous pouvons constater que au fil des générations la variance diminue, par analogie nous pouvons donc affirmer que nous convergons vers une catapulte qui produit beaucoup de dégâts et qui vise dans le mille.
+Nous pouvons constater qu'au fil des générations la variance diminue, par analogie nous pouvons donc affirmer que nous convergeons vers une catapulte qui produit beaucoup de dégâts et qui vise dans le mille.
