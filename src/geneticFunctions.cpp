@@ -88,6 +88,24 @@ double* GeneticFunctions::selectPopulation(double** pop, int len){
     return NULL;
 }
 
+double** GeneticFunctions::mutPopulation(double** pop, int len){
+    double** popResult = new double*[len];
+
+    for(int i = 0; i < len; ++i)
+    {
+        double prob = Utils::getRandValue(0.0, 100.0);
+
+        if(prob <= 1.0)
+        {
+            int index = (int)Utils::getRandValue(1.0, 6.0);
+
+            pop[i][index] = Utils::getRandValue(1.0, 100.0);
+        }
+
+    }
+
+    return pop;
+}
 
 double** GeneticFunctions::crossPopulation(double** pop, int len,  int* index){
 
