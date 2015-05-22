@@ -112,7 +112,7 @@ double** GeneticFunctions::crossPopulation(double** pop, int len,  int* index){
     {
         double changeCut = Utils::getRandValue(0.0, 100.0);
 
-        if(changeCut <= 50)
+        if(changeCut <= 80)
         {
             *index = (int)Utils::getRandValue(1.0, 6.0);
         }
