@@ -47,16 +47,21 @@ void GeneticFunctions::evaluatePopulation(double** pop, int size){
 double* GeneticFunctions::selectPopulation(double** pop, int len){
     double sumScore = 0;
     
+    // on calcul le score total
     for(int i=0; i < len; sumScore+=pop[i][7], ++i);
 
+    // on get une valeur random entre 0 et le score total
     double randVal = Utils::getRandValue(0.0, sumScore);
 
     double selectSumScore = 0;
 
+    // on passe sur chaque individu
     for(int i=0; i < len; ++i)
     {
         selectSumScore += pop[i][7];
-        
+     
+        // si la somme des score entre 0 et i est sup ou egal a
+        // la valeur random alors nous avons notre individu
         if(selectSumScore >= randVal)
         {
             return pop[i];
@@ -76,22 +81,7 @@ double* GeneticFunctions::selectPopulation(double** pop, int len){
   *
   */
 void GeneticFunctions::crossPopulation(double** pop, int len,  int* index){
-    double changeCut = Utils::getRandValue(0.0, 100.0);
-
-    if(changeCut <= 50)
-    {
-        *index = (int)Utils::getRandValue(0.0, 7.0);
-    }
-
-    double* dad = selectPopulation(pop, len);
-    double* mum = selectPopulation(pop, len);
-   
-    cout << dad[0] << " " << mum[0] << endl;
-
-    for(int i = *index; i <= 7; ++i)
-    {
-        swap(dad[i], mum[i]);
-    }
+    crossCouple(pop, len, index);
 }
 
   /*
