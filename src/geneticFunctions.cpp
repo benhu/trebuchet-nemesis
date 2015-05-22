@@ -29,9 +29,9 @@ double GeneticFunctions::evaluatePopulation(double** pop, int size){
             individual[7] += Utils::evalPortee(individual);
             
             //Puis on evalue selon la puissance sur l'objectif (pas un caractere tres important sauf si objectif presque atteint attention divergence)
-            if(individual[7] > 1.3){
+            //if(individual[7] > 1.3){
                 individual[7] += Utils::evalPower(individual);
-            }
+            //}
         }else{
             // Change le score
             individual[7] = 0.001;
