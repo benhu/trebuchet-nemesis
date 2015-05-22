@@ -2,6 +2,7 @@
 #define GENETICFUNCTIONS_H
 
 #include "utils.h"
+#include <string.h>
 
 class GeneticFunctions {
     
@@ -10,9 +11,6 @@ class GeneticFunctions {
         
         double evaluatePopulation(double** pop, int size);
         double* selectPopulation(double** pop, int len);
-        void crossPopulation(double** pop, int len,  int* index);
-
-    private:
-        void    crossCouple();
+        double** crossPopulation(double** pop, int len,  int* index);
 };
 #endif // GENETICFUNCTIONS
