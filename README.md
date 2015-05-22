@@ -17,7 +17,8 @@ Nous souhaitons optimiser plusieurs paramètres du trebuchet. Ce type d'optimisa
 
 L'Evaluation
 -------------
-Pour évaluer l'impact de nos évolutions, il nous mesurer nos différentes générations. Cette mesure est faite avec une fonction d'évaluation qui se base sur trois élément:
+Pour évaluer l'impact de nos évolutions, il nous mesurer nos différentes générations. Cette évaluation retrounera un score relatif à l'adapatation du trebuchet.
+Cette mesure est faite avec une fonction d'évaluation qui se base sur trois élément:
 Le plus important, la viabilité qui va nous dire si oui ou non notre catapulte est réalisable.
 Nous avons donc décider d'attribuer un score de 0.001 à un élément non viable, pour ne pas l'exclure et 1 pour un élément viable.
 
@@ -32,12 +33,16 @@ Pour finir si nous sommes suffisament proche, de l'objet nous considérons la fo
 
 Selection
 ---------
-La selection permet de récupérer les individus ordonnés sur les scores.
+La selection est une méthode qui permet de récupérer n/2 couples. Chaque individu sera sélectionné selon son score personnel obtenu lors de l'évaluation.
+Les individus ainsi rangé ont plus ou moins de chance d'être selectionné.
+
 
 ![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minionOrder.jpg?token=AGIcXGhMwJM-Ubd-Lgsnfu-ry1epJyeJks5VZ5mFwA%3D%3D)
 
-Les individus ainsi rangé ont plus ou moins de chance d'être selectionné.
 Elle s'effectue de manière aléatoire et est pondérée avec la somme des scores des fonctions d'évaluations.
+Nous récupérons donc la somme des scores de notre population. Avec celle ci nous créons un random entre 0 et la somme des scores, qui représente l'individu qui sera choisi. On parcourt notre tableau en comparant les scores au randement.
+
+
 
 Croisement
 ----------
