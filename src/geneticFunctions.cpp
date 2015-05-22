@@ -47,6 +47,8 @@ double GeneticFunctions::evaluatePopulation(double** pop, int size, double dista
     variance = variance/size;
     variance -= moyenne*moyenne;
     
+    variances[cptGeneration] = variance;
+
     return variance;
 } 
 
@@ -139,4 +141,20 @@ double** GeneticFunctions::crossPopulation(double** pop, int len,  int* index){
     delete(pop);
 
     return popResult;
+}
+
+void GeneticFunctions::showVariances(){
+
+    cout<< " Variances : (generation, variances) "<< endl;
+    cout<< " =========== "<< endl;
+
+    for(int i = 0; i < cptGeneration; i++)
+    {
+
+        cout<< "("   << i << "," ; 
+        cout<< variances[i] << ");";
+    }
+
+
+        cout<<endl;
 }

@@ -18,6 +18,7 @@ class GeneticFunctions {
         double** mutPopulation(double** pop, int len);
 
         double* getVariances(){return variances;}
+        void showVariances();
 
     private:
 

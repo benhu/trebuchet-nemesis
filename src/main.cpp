@@ -13,6 +13,7 @@ double targetDist = 300.0;
 double** generatePopulation(int size);
 void     showPopulation(double** pop, int size, int generation);   
 
+
 int main() {
     // Initialisation de random
     srand(time(NULL));
@@ -20,7 +21,7 @@ int main() {
 
     //Creation population
     int sizePopulation = 100;
-    int generation = 10;
+    int generation = 100;
 
     //Intitialize Genetics
 
@@ -46,6 +47,8 @@ int main() {
 
         ++cntGeneration;
     }
+
+    genetic->showVariances();
 
     return 0;
 }
@@ -96,8 +99,8 @@ double** generatePopulation(int size) {
  */ 
 void showPopulation(double** pop, int size, int generation){
 
-    cout<< " Generation : " << generation <<endl;
-    cout<< " ========================= "<<endl;
+    cout<< " Meilleur élément Generation : " << generation <<endl;
+    cout<< " ==================== "<<endl;
     
     int bestIndex = 0;
     double bestScore = 0.0;
