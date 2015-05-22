@@ -9,11 +9,13 @@ using namespace std;
   * Pour chaque individu donne une valaure
   * @param pop la population
   * @param size la taille de la population
-  * @return le score totale pour la génération
+  * @return la variance pour la génération
   **/
 double GeneticFunctions::evaluatePopulation(double** pop, int size){
     
     double totalScore = 0;
+    double variance =0;
+    double moyenne = 0;
 
     //Pour chaque individu on evalue
     for(int i=0; i < size; i++){
@@ -36,7 +38,15 @@ double GeneticFunctions::evaluatePopulation(double** pop, int size){
         }
 
         totalScore += individual[7];
+        
     }
+
+    moyenne = totalScore/size;
+    variance = totalScore* totalScore;
+    variance = variance/size;
+    variance -= moyenne*moyenne;
+
+    cout << "Variance" << variance<<endl;
 
     return totalScore;
 } 
