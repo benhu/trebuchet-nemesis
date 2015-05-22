@@ -82,7 +82,7 @@ double Utils::calcVelocity(double* genes){
  */
 double Utils::evalPortee(double* genes, double distance){
     double x = calcPortee(genes);
-    return exp(-pow((x-distance),2)/100000);
+    return exp(-pow((x-distance),2)/10000);
 }
 
 
