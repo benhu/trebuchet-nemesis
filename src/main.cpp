@@ -25,7 +25,7 @@ int main() {
 
     double** pop = generatePopulation(sizePopulation);
 
-    int indexMutation = Utils::getRandValue(0.0, 7.0);
+    int indexMutation = Utils::getRandValue(1.0, 6.0);
 
     int cntGeneration = 0;
 
