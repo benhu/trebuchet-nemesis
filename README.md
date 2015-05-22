@@ -1,5 +1,6 @@
 Trebuchet
 ========
+*Olivia BRUCE - Benjamin HUMEAU*
 
 ![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minions.jpg?token=AGIcXMh7GY1PXtyYJcB7W9YVIOyKCRC8ks5VZ4l3wA%3D%3D)
 
