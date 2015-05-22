@@ -10,6 +10,15 @@ L'idée est de faire en sorte que le trebuchet puisse atteindre un objet à une 
 
 Nous souhaitons optimiser plusieurs paramètres du trebuchet. Ce type d'optimisation ne peut pas être fait en temps linéaire du fait de sa complexité. Nous allons donc utitiliser les algorithmes génétiques pour nous permettre de converger plus rapidement vers un résultat.
 
+Comment compiler :
+------------------
+Le projet est écrit en C++ et est accompagné d'un makefile.
+Ils suffit donc d'utiliser la commande :
+```
+make
+./main
+```
+
 # II.   L'algorithme
 
 ![alt tag]( https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/schemaAlgo.png?token=AGIcXAn1Li3cgsbfuydXL6dznOVtZKUlks5VZ419wA%3D%3D )
