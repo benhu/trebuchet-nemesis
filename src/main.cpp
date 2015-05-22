@@ -8,7 +8,7 @@
 */
 using namespace std;
 
-double targetDist = 200.0;
+double targetDist = 300.0;
 
 double** generatePopulation(int size);
 void     showPopulation(double** pop, int size, int generation);   
@@ -20,8 +20,8 @@ int main() {
     GeneticFunctions* genetic = new GeneticFunctions();
 
     //Creation population
-    int sizePopulation = 100;
-    int generation = 100;
+    int sizePopulation = 500;
+    int generation = 10000;
 
     double** pop = generatePopulation(sizePopulation);
 
@@ -33,7 +33,8 @@ int main() {
 
         genetic->evaluatePopulation(pop,sizePopulation);
 
-        //showPopulation(pop,sizePopulation, cntGeneration);
+        if(cntGeneration == 1 || cntGeneration == generation - 1)
+            showPopulation(pop,sizePopulation, cntGeneration);
         
         pop = genetic->crossPopulation(pop, sizePopulation, &indexMutation);
         
@@ -93,19 +94,27 @@ void showPopulation(double** pop, int size, int generation){
 
     cout<< " Generation : " << generation <<endl;
     cout<< " ================================== "<<endl;
+    
+    int bestIndex = 0;
+    double bestScore = 0.0;
 
     for(int i = 0; i < size; i++)
     {
-        
-        //cout<< " Alpha : "<< pop[i][0] << "°" <<endl; 
-        //cout<< " Lb : "   << pop[i][1] << " m"   <<endl; 
-        //cout<< " Mb : "   << pop[i][2] << " kg"  <<endl; 
-        //cout<< " Lr : "   << pop[i][3] << " m"   <<endl; 
-        //cout<< " Mc : "   << pop[i][4] << " kg"  <<endl; 
-        //cout<< " Mp : "   << pop[i][5] << " m" <<endl;
-        //cout<< " Beta : " << pop[i][6] << "°" <<endl;
-        //cout<< " Score : " << pop[i][7] <<endl;
-        //cout<<endl;
+        if(pop[i][7] > bestScore)
+        {
+            bestScore = pop[i][7];
+            bestIndex = i;
+        }
     }
+
+    cout<< " Alpha : "<< pop[bestIndex][0] << "°" <<endl; 
+    cout<< " Lb : "   << pop[bestIndex][1] << " m"   <<endl; 
+    cout<< " Mb : "   << pop[bestIndex][2] << " kg"  <<endl; 
+    cout<< " Lr : "   << pop[bestIndex][3] << " m"   <<endl; 
+    cout<< " Mc : "   << pop[bestIndex][4] << " kg"  <<endl; 
+    cout<< " Mp : "   << pop[bestIndex][5] << " m" <<endl;
+    cout<< " Beta : " << pop[bestIndex][6] << "°" <<endl;
+    cout<< " Score : " << pop[bestIndex][7] <<endl;
+    cout<<endl;
 
 }
