@@ -71,43 +71,42 @@ double* GeneticFunctions::selectPopulation(double** pop, int len){
     return NULL;
 }
 
-  /*
-  * Fonction de croisement
-  * Croise des individus
-  *
-  * @param
-  * @param
-  * @return
-  *
-  */
-void GeneticFunctions::crossPopulation(double** pop, int len,  int* index){
-    crossCouple(pop, len, index);
-}
 
-  /*
-  * Fonction de croisement
-  * Croise des individus
-  *
-  * @param
-  * @param
-  * @return
-  *
-  */
-void GeneticFunctions::crossCouple(double** pop, int len,  int* index){
-    double changeCut = Utils::getRandValue(0.0, 100.0);
+double** GeneticFunctions::crossPopulation(double** pop, int len,  int* index){
 
-    if(changeCut <= 50)
+    double** popResult = new double*[len];
+
+    for(int popResultSize = 0; popResultSize < len; popResultSize+=2)
     {
-        *index = (int)Utils::getRandValue(0.0, 7.0);
-    }
+        double changeCut = Utils::getRandValue(0.0, 100.0);
 
-    double* dad = selectPopulation(pop, len);
-    double* mum = selectPopulation(pop, len);
+        if(changeCut <= 50)
+        {
+            *index = (int)Utils::getRandValue(1.0, 6.0);
+        }
+
+        double* dad = selectPopulation(pop, len);
+        double* mum = selectPopulation(pop, len);
+
+        double* newDad = new double[8];
+        double* newMum = new double[8];
+
+        memcpy(newDad, dad, 8 * sizeof(double));
+        memcpy(newMum, mum, 8 * sizeof(double));
    
-    cout << dad[0] << " " << mum[0] << endl;
+        for(int i = *index; i <= 6; ++i)
+        {
+            swap(newDad[i], newMum[i]);
+        }
+        
+        newDad[8] = 0;
+        newMum[8] = 0;
 
-    for(int i = *index; i <= 7; ++i)
-    {
-        swap(dad[i], mum[i]);
+        popResult[popResultSize] = newDad;
+        popResult[popResultSize + 1] = newMum;
     }
+
+    delete(pop);
+
+    return popResult;
 }
