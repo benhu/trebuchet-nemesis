@@ -21,7 +21,7 @@ int main() {
 
     //Creation population
     int sizePopulation = 100;
-    int generation = 500;
+    int generation = 100;
 
     double** pop = generatePopulation(sizePopulation);
 
@@ -33,7 +33,7 @@ int main() {
 
         genetic->evaluatePopulation(pop,sizePopulation);
 
-        showPopulation(pop,sizePopulation, cntGeneration);
+        //showPopulation(pop,sizePopulation, cntGeneration);
         
         pop = genetic->crossPopulation(pop, sizePopulation, &indexMutation);
 

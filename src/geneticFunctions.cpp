@@ -38,15 +38,17 @@ double GeneticFunctions::evaluatePopulation(double** pop, int size){
         }
 
         totalScore += individual[7];
-        
+        variance += individual[7] *individual[7];
     }
 
     moyenne = totalScore/size;
-    variance = totalScore* totalScore;
+    
     variance = variance/size;
     variance -= moyenne*moyenne;
-
-    cout << "Variance" << variance<<endl;
+    cout <<endl;
+    cout << "moyenns : " << moyenne <<endl;
+    cout << "Score : " << totalScore<<endl;
+    cout << "Variance : " << variance << endl;
 
     return totalScore;
 } 
