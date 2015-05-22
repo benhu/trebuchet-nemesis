@@ -1,9 +1,9 @@
 Trebuchet
-=
+========
 
 ![alt tag](https://raw.githubusercontent.com/benhu/trebuchet-nemesis/master/asset/minions.jpg?token=AGIcXMh7GY1PXtyYJcB7W9YVIOyKCRC8ks5VZ4l3wA%3D%3D)
 
-# I.    Introduction
+#I. Introduction
 
 Le but de ce TP est d'appliquer les algorithmes de metaheuristique pour créer le meilleur trebuchet possible dans les limites du "réalisable".
 L'idée est de faire en sorte que le trebuchet puisse atteindre un objet à une certaine distance. Pour cela nous devons trouver les caractéristiques nécessaires à la réalisation de l'objectif.
@@ -46,12 +46,11 @@ Nous récupérons donc la somme des scores de notre population. Avec celle ci no
 
 Croisement
 ----------
-Le croisement s'effectue sur un gène défini aleatoirement au début de génération, les deux gènes se croisent et forme deux nouveaux gènes, la proba que le gène change est de 50%. 
+Le croisement s'effectue sur un gène défini aléatoirement au début de la génération, cette génération est bornée entre le deuxième gène et le dernier. Les deux gènes se croisent et en formes deux nouveaux, la probabilité que le gène change est de 80%. Afin de respecter les 80%, on génère un nombre entre 0 et 100, si le nombre est inférieur à 80 alors on change la valeur de l'index par une valeur aléatoire. Cela permet d'une convergence plus rapide vers une catapulte de meilleures qualités.
 
 Mutation
 --------
-La mutation s'effectue sur un gène définis aléatoirement et la probabilité de mutation est de 1%
-
+La mutation à une chance de se produire de 1%, pour cela nous utilisons la même technique que pour le croisement, on génère un nombre entre 0 et 100, si le nombre est inférieur ou égale a 1, alors on change un gène de l'individu avec une valeur aléatoire.
 
 
 # III.   Element de l'algorithme
@@ -91,11 +90,11 @@ Nous avons aussi le score en position 7.
 Variations des gènes
 --------------------
 - Hauteur de la butée en °
-    - de 30° à 90°
+    - de 0° à 100°
 - Longueur du bras
-    - de 0 à bcp
+    - de 0 à 100 m
 - Masse du bras
-    - de 0 à bcp
+    - de 0 à 100 m
 
 #Test
 
@@ -103,3 +102,4 @@ Variations des gènes
 
 # Conclusion
 
+Nous pouvons constater qu'au fil des générations la variance diminue, par analogie nous pouvons donc affirmer que nous convergeons vers une catapulte qui produit beaucoup de dégâts et qui vise dans le mille.

@@ -11,7 +11,7 @@ using namespace std;
   * @param size la taille de la population
   * @return la variance pour la génération
   **/
-double GeneticFunctions::evaluatePopulation(double** pop, int size){
+double GeneticFunctions::evaluatePopulation(double** pop, int size, double distance){
     
     cptGeneration++;
     double totalScore = 0;
@@ -27,7 +27,7 @@ double GeneticFunctions::evaluatePopulation(double** pop, int size){
             individual[7] = 1;
             
             //On evalue distance par rapport a l'objectif
-            individual[7] += Utils::evalPortee(individual);
+            individual[7] += Utils::evalPortee(individual, distance);
             
             //Puis on evalue selon la puissance sur l'objectif (pas un caractere tres important sauf si objectif presque atteint attention divergence)
             //if(individual[7] > 1.3){
@@ -86,8 +86,6 @@ double* GeneticFunctions::selectPopulation(double** pop, int len){
 }
 
 double** GeneticFunctions::mutPopulation(double** pop, int len){
-    double** popResult = new double*[len];
-
     for(int i = 0; i < len; ++i)
     {
         double prob = Utils::getRandValue(0.0, 100.0);

@@ -46,7 +46,9 @@ double Utils::calcPortee(double* genes){
 double Utils::calcEnergy(double* genes){ 
 
     double velocity = calcVelocity(genes);
-    return calculateEnergieImpact(genes[5], velocity);
+    double energy =  calculateEnergieImpact(genes[5], velocity);
+
+    return energy;
 }
 
 
@@ -65,7 +67,9 @@ double Utils::calcVelocity(double* genes){
     
     double acc = calculateAcceleration(momentBras, momentInertie);
     
-    return calculateVelocite(acc, genes[1]);
+    double vel = calculateVelocite(acc, genes[1]);
+
+    return vel;
 }
 
 
@@ -76,18 +80,9 @@ double Utils::calcVelocity(double* genes){
  * @param genes Les genes de l'individu
  * @return double Le score
  */
-double Utils::evalPortee(double* genes){
+double Utils::evalPortee(double* genes, double distance){
     double x = calcPortee(genes);
-    /*cout<< " Alpha : "<< genes[0] << "°" <<endl; 
-    cout<< " Lb : "   << genes[1] << " m"   <<endl; 
-    cout<< " Mb : "   << genes[2] << " kg"  <<endl; 
-    cout<< " Lr : "   << genes[3] << " m"   <<endl; 
-    cout<< " Mc : "   << genes[4] << " kg"  <<endl; 
-    cout<< " Mp : "   << genes[5] << " m" <<endl;
-    cout<< " Beta : " << genes[6] << "°" <<endl;
-    cout<< "Portée " << x << endl;
-    cout<<endl;*/
-    return exp(-pow((x-300),2)/10000);
+    return exp(-pow((x-distance),2)/10000);
 }
 
 
@@ -98,7 +93,8 @@ double Utils::evalPortee(double* genes){
  * @return double Le score
  */
 double Utils::evalPower(double* genes){
-    return atan(calcEnergy(genes))/(M_PI/2);
+    double score = atan(calcEnergy(genes))/(M_PI/2);
+    return score;
 }
 
 
@@ -174,7 +170,8 @@ double Utils::calculatePortee(double velocite, double gravite, double alpha) {
  * Calcul de l'energie d'impact
  */
 double Utils::calculateEnergieImpact(double masseProjectile, double velocite) {
-    return 1 / 2 * masseProjectile * pow(velocite, 2);
+
+    return 0.5 * masseProjectile * pow(velocite, 2);
 }
 
 /*

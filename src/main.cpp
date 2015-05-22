@@ -26,15 +26,16 @@ int main() {
 
     GeneticFunctions* genetic = new GeneticFunctions(sizePopulation,generation);
 
+
     double** pop = generatePopulation(sizePopulation);
 
-    int indexMutation = Utils::getRandValue(0.0, 7.0);
+    int indexMutation = Utils::getRandValue(1.0, 6.0);
 
     int cntGeneration = 0;
 
     while(cntGeneration < generation) {
 
-        genetic->evaluatePopulation(pop,sizePopulation);
+        genetic->evaluatePopulation(pop,sizePopulation, targetDist);
 
         if(cntGeneration == 1 || cntGeneration == generation - 1)
             showPopulation(pop,sizePopulation, cntGeneration);
