@@ -46,11 +46,11 @@ Nous récupérons donc la somme des scores de notre population. Avec celle ci no
 
 Croisement
 ----------
-Le croisement s'effectue sur un gène défini aleatoirement au début de génération, cette génération est bornée entre le deuxième gène et le dernier. Les deux gènes se croisent et forme deux nouveaux gènes, la probabilité que le gène change est de 80%. Afin de respecter les 80%, on génère un nombre entre 0 et 100, si le nombre est inférieur à 80 alors on change la valeur de l'index par une valeur aléatoire. Cela permet d'une convergence plus rapide vers une catapulte de meilleure qualitée.
+Le croisement s'effectue sur un gène défini aléatoirement au début de la génération, cette génération est bornée entre le deuxième gène et le dernier. Les deux gènes se croisent et en formes deux nouveaux, la probabilité que le gène change est de 80%. Afin de respecter les 80%, on génère un nombre entre 0 et 100, si le nombre est inférieur à 80 alors on change la valeur de l'index par une valeur aléatoire. Cela permet d'une convergence plus rapide vers une catapulte de meilleures qualités.
 
 Mutation
 --------
-La mutation a une chance de ce produire de 1%, pour cela nous utilisons la même technique que pour le croisement, on génère un nombre entre 0 et 100, si le nombre est inférieur ou égale a 1 alors on change un gène de l'individu avec une valeur aléatoire.
+La mutation à une chance de se produire de 1%, pour cela nous utilisons la même technique que pour le croisement, on génère un nombre entre 0 et 100, si le nombre est inférieur ou égale a 1, alors on change un gène de l'individu avec une valeur aléatoire.
 
 
 # III.   Element de l'algorithme
