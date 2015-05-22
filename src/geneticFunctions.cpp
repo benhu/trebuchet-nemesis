@@ -7,12 +7,13 @@ using namespace std;
 /*
   * Fonction d'evaluation
   * Pour chaque individu donne une valaure
-  * @param
-  * @param
-  * @return
+  * @param pop la population
+  * @param size la taille de la population
+  * @return le score totale pour la génération
   **/
-void GeneticFunctions::evaluatePopulation(double** pop, int size){
-    //Calcule de la variance si on ne varie plus on arrete ou si nbGeneration atteint
+double GeneticFunctions::evaluatePopulation(double** pop, int size){
+    
+    double totalScore = 0;
 
     //Pour chaque individu on evalue
     for(int i=0; i < size; i++){
@@ -33,7 +34,11 @@ void GeneticFunctions::evaluatePopulation(double** pop, int size){
             // Change le score
             individual[7] = 0.001;
         }
+
+        totalScore += individual[7];
     }
+
+    return totalScore;
 } 
 
  /*

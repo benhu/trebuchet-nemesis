@@ -9,7 +9,7 @@ class GeneticFunctions {
     public:
         GeneticFunctions(){};
         
-        void evaluatePopulation(double** pop, int size);
+        double evaluatePopulation(double** pop, int size);
         double* selectPopulation(double** pop, int len);
         double** crossPopulation(double** pop, int len,  int* index);
 };
