@@ -30,7 +30,7 @@ double GeneticFunctions::evaluatePopulation(double** pop, int size, double dista
             
             //Puis on evalue selon la puissance sur l'objectif (pas un caractere tres important sauf si objectif presque atteint attention divergence)
             //if(individual[7] > 1.3){
-                individual[7] += Utils::evalPower(individual);
+            individual[7] += Utils::evalPower(individual);
             //}
         }else{
             // Change le score
@@ -89,8 +89,6 @@ double* GeneticFunctions::selectPopulation(double** pop, int len){
 }
 
 double** GeneticFunctions::mutPopulation(double** pop, int len){
-    double** popResult = new double*[len];
-
     for(int i = 0; i < len; ++i)
     {
         double prob = Utils::getRandValue(0.0, 100.0);

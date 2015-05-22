@@ -20,8 +20,8 @@ int main() {
     GeneticFunctions* genetic = new GeneticFunctions();
 
     //Creation population
-    int sizePopulation = 500;
-    int generation = 10000;
+    int sizePopulation = 100;
+    int generation = 100;
 
     double** pop = generatePopulation(sizePopulation);
 
