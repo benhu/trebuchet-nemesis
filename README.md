@@ -15,8 +15,8 @@ Comment compiler :
 Le projet est écrit en C++ et est accompagné d'un makefile.
 Ils suffit donc d'utiliser la commande :
 ```
-make
-./main
+>make
+>./main
 ```
 
 # II.   L'algorithme
